@@ -1,0 +1,71 @@
+%%   __  __       _   _       ____            _ 
+%%  |  \/  | __ _| |_| |__   |  _ \  ___  ___| |
+%%  | |\/| |/ _` | __| '_ \  | | | |/ _ \/ __| |
+%%  | |  | | (_| | |_| | | | | |_| |  __/ (__| |
+%%  |_|  |_|\__,_|\__|_| |_| |____/ \___|\___|_|
+%%
+%% Picked up from Foster et. al. in their arXiv paper
+%% https://arxiv.org/abs/1803.07617
+
+
+% Math delimiters
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert} %
+\DeclarePairedDelimiter{\brk}{[}{]}
+\DeclarePairedDelimiter{\crl}{\{}{\}}
+\DeclarePairedDelimiter{\prn}{(}{)}
+\DeclarePairedDelimiter{\nrm}{\|}{\|}
+\DeclarePairedDelimiter{\tri}{\langle}{\rangle}
+\DeclarePairedDelimiter{\dtri}{\llangle}{\rrangle}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+
+% \DeclareMathOperator{\E}{\mathbb{E}} %expecation
+\let\Pr\undefined
+\let\P\undefined
+\DeclareMathOperator{\En}{\mathbb{E}}
+\DeclareMathOperator{\P}{P}
+\DeclareMathOperator{\Pr}{Pr}
+\DeclareMathOperator{\tr}{tr}
+
+% Arg<x>
+\DeclareMathOperator*{\argmin}{arg\,min} % * Places subscript directly under operator
+\DeclareMathOperator*{\argmax}{arg\,max}             
+\DeclareMathOperator*{\arginf}{arg\,inf} 
+\DeclareMathOperator*{\argsup}{arg\,sup} 
+
+% one-off macros
+\newcommand{\ind}{\mathbbm{1}}    %Indicator
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+
+\newcommand{\ldef}{\vcentcolon=}
+\newcommand{\rdef}{=\vcentcolon}
+
+% styles
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+
+
+% Special letters: blackboard, mathcal, widehat
+% djhsu magic
+\def\ddefloop#1{\ifx\ddefloop#1\else\ddef{#1}\expandafter\ddefloop\fi}
+\def\ddef#1{\expandafter\def\csname #1bb\endcsname{\ensuremath{\mathbb{#1}}}}
+\ddefloop ABCDEFGHIJKLMNOPQRSTUVWXYZ\ddefloop
+\def\ddefloop#1{\ifx\ddefloop#1\else\ddef{#1}\expandafter\ddefloop\fi}
+\def\ddef#1{\expandafter\def\csname #1b\endcsname{\ensuremath{\mathbf{#1}}}}
+\ddefloop ABCDEFGHIJKLMNOPQRSTUVWXYZ\ddefloop
+\def\ddef#1{\expandafter\def\csname #1c\endcsname{\ensuremath{\mathcal{#1}}}}
+\ddefloop ABCDEFGHIJKLMNOPQRSTUVWXYZ\ddefloop
+\def\ddef#1{\expandafter\def\csname #1hat\endcsname{\ensuremath{\widehat{#1}}}}
+\ddefloop ABCDEFGHIJKLMNOPQRSTUVWXYZ\ddefloop
+\def\ddef#1{\expandafter\def\csname hc#1\endcsname{\ensuremath{\widehat{\mathcal{#1}}}}}
+\ddefloop ABCDEFGHIJKLMNOPQRSTUVWXYZ\ddefloop
+\def\ddef#1{\expandafter\def\csname #1til\endcsname{\ensuremath{\widetilde{#1}}}}
+\ddefloop ABCDEFGHIJKLMNOPQRSTUVWXYZ\ddefloop
+\def\ddef#1{\expandafter\def\csname tc#1\endcsname{\ensuremath{\widetilde{\mathcal{#1}}}}}
+\ddefloop ABCDEFGHIJKLMNOPQRSTUVWXYZ\ddefloop
+\def\ddef#1{\expandafter\def\csname #1do\endcsname{\ensuremath{\dot{#1}}}}
+\ddefloop abcdefghijklmnopqrstuvwxyz\ddefloop
